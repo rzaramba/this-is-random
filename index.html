@@ -2,4 +2,25 @@
 <html lang="en">
     <script src="script.js"></script>
     <link rel="stylesheet" type="text/css" href="./style.css" />
+    <body>
+        <nav class=“navbar” role=“navigation” aria-label=“main navigation”>
+            <div class=“navbar-brand”>
+              <!-- navbar items, navbar burger... -->
+              <a role=“button” class=“navbar-burger” aria-label=“menu” aria-expanded=“false” data-target=“navbarBasicExample”>
+                <span aria-hidden=“true”></span>
+                <span aria-hidden=“true”></span>
+                <span aria-hidden=“true”></span>
+              </a>
+            </div>
+          </nav>
+        <main>
+            <div class=“citySearch”>
+                <input type=“text”>
+            </div>
+            <h2>Map will be here</h2>
+            <div id=“map”>
+            </div>
+        </main>
+        <script async src=“https://maps.googleapis.com/maps/api/js?key=AIzaSyBUwMsfjtVxq0xvUWVxVq2b7cSGbqnHp1k&callback=initMap”></script>
+    </body>
 </html>
