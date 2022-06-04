@@ -34,12 +34,24 @@
                   </div>
                 </div>
                 </form>
-              </div>
-            <h2>Map will be here</h2>
-            <div id=“map”>
-            </div>
+              </div> 
         </main>
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBUwMsfjtVxq0xvUWVxVq2b7cSGbqnHp1k&callback=initMap&v=weekly" defer></script>
+        <h2>Map will be here</h2>
+    <!--The div element for the map -->
+        <div id="map"></div>
+
+    <!-- 
+     The `defer` attribute causes the callback to execute after the full HTML
+     document has been parsed. For non-blocking uses, avoiding race conditions,
+     and consistent behavior across browsers, consider loading using Promises
+     with https://www.npmjs.com/package/@googlemaps/js-api-loader.
+    -->
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBUwMsfjtVxq0xvUWVxVq2b7cSGbqnHp1k&callback=initMap&v=weekly"
+      defer
+    ></script>
+  </body>
+</html>  
     </body>
 </html>
 
