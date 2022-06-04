@@ -27,3 +27,13 @@
     float: none;
     display: inline-block;
   }
+  /* main bpx css */
+  form {
+    max-width: 700px;
+    min-height: 300px;
+  }
+
+  #cityname {
+    max-width: 300px;
+  }
+
