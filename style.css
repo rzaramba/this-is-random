@@ -21,6 +21,14 @@
     padding: 0;
   }
 
+
+  /*spacing for navbar*/
+  .container {
+    position: fixed;
+    text-align: center;
+    float: none;
+    display: inline-block;
+  }
   /* main bpx css */
   form {
     max-width: 700px;
