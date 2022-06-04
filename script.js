@@ -12,14 +12,16 @@ function initMap() {
   });
   infoWindow = new google.maps.InfoWindow();
 
-  const locationButton = document.createElement("button");
+  // const locationButton = document.createElement("button");
+  //moved button from box to top of google maps
+  //findMyLocation replaced all of locationButton in function...
   
-  // const findMyLocation = document.querySelector("#btn");
+  const findMyLocation = document.querySelector("#btn");
 
-  locationButton.textContent = "Pan to Current Location";
-  locationButton.classList.add("custom-map-control-button");
-  map.controls[google.maps.ControlPosition.TOP_CENTER].push(locationButton);
-  locationButton.addEventListener("click", () => {
+  findMyLocation.textContent = "Find My Location";
+  findMyLocation.classList.add("custom-map-control-button");
+  map.controls[google.maps.ControlPosition.TOP_CENTER].push(findMyLocation);
+  findMyLocation.addEventListener("click", () => {
     // Try HTML5 geolocation.
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
