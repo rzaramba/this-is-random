@@ -12,20 +12,30 @@
   justify-content: center;
   align-items: center;
 }
- #map {
-    height: 100%;
-    margin: 20px;
+ div#map {
+   
+  position: relative;
+	padding-top: 50%;
   }
   
+  #map {
+  position: relative;
+	padding-top: 50%;
+  
+ 
+  }
   /* 
    * Optional: Makes the sample page fill the window. 
    */
-  html,
+  html,  /* Makes map run */
+
   body {
     height: 100%;
     margin: 0;
     padding: 0;
     background-color: #ffC2B4;
+    margin: 10px;
+    padding: 10px;
   }
 
   /* main bpx css */
@@ -38,6 +48,14 @@
     max-width: 300px;
   }
 
-#map {
-  
-}
+  @media screen and (min-width: 1200px) {
+    #map {
+      width: 600px;
+    }
+  }
+
+  @media screen and (max-width: 320px) {
+    #map {
+      width: 160px;
+    }
+  }
