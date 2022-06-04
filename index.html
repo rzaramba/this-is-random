@@ -16,12 +16,11 @@
               <form class="box">
                 <div class="field">
                   <label class="label is-medium columns is-mobile is-centered">Where are you?</label>
-                  <div class="control box has-text-centered">
-                    <input id="cityname" class="input is-large  " type="text" placeholder="city name">
-                  </div>
+                  <div class="control box has-text-centered"><input id="cityname" class="input is-large  " type="text" placeholder="city name">
+                  </div>   
                 </div>
                 <div class="has-text-centered">
-                <button class="button is-primary is-medium px-6 ">Search!</button>
+                <button id="btn" class="button is-primary is-medium px-6 ">Find My Location</button>
               </div>
               </form>
 
@@ -42,7 +41,7 @@
         </main>
         <h2>Map will be here</h2>
     <!--The div element for the map -->
-        <div id="map"></div>
+        <div id="map">
 
     <!-- 
      The `defer` attribute causes the callback to execute after the full HTML
@@ -50,12 +49,11 @@
      and consistent behavior across browsers, consider loading using Promises
      with https://www.npmjs.com/package/@googlemaps/js-api-loader.
     -->
-    <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBUwMsfjtVxq0xvUWVxVq2b7cSGbqnHp1k&callback=initMap&v=weekly"
-      defer
-    ></script>
+    
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBUwMsfjtVxq0xvUWVxVq2b7cSGbqnHp1k&callback=initMap&v=weekly" defer></script>
+  </div>
   </body>
 </html>  
-    </body>
-</html>
+  
+
 

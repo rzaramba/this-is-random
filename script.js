@@ -7,13 +7,14 @@ let map, infoWindow;
 
 function initMap() {
   map = new google.maps.Map(document.getElementById("map"), {
-    center: { lat: -34.397, lng: 150.644 },
+    center: { lat: 37.0902, lng: -95.7129 },
     zoom: 6,
   });
   infoWindow = new google.maps.InfoWindow();
 
   const locationButton = document.createElement("button");
   
+  // const findMyLocation = document.querySelector("#btn");
 
   locationButton.textContent = "Pan to Current Location";
   locationButton.classList.add("custom-map-control-button");
