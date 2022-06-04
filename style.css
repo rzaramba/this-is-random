@@ -19,16 +19,9 @@
     height: 100%;
     margin: 0;
     padding: 0;
+    background-color: #ffC2B4;
   }
 
-
-  /*spacing for navbar*/
-  .container {
-    position: fixed;
-    text-align: center;
-    float: none;
-    display: inline-block;
-  }
   /* main bpx css */
   form {
     max-width: 700px;
