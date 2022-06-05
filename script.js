@@ -61,7 +61,3 @@ window.initMap = initMap;
 
 //Yelp api code starts here
 
-var getEvents = function(eventList){
-  
-
-}
