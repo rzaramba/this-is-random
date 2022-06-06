@@ -8,7 +8,7 @@ let map, infoWindow;
 function initMap() {
   map = new google.maps.Map(document.getElementById("map"), {
     center: { lat: 37.0902, lng: -95.7129 },
-    zoom: 6,
+    zoom: 10,
   });
   infoWindow = new google.maps.InfoWindow();
 
@@ -45,6 +45,8 @@ function initMap() {
       handleLocationError(false, infoWindow, map.getCenter());
     }
   });
+  console.log(navigator.geolocation.getCurrentPosition.position);
+  //tried to console/log current location but it is not defined.
 }
 
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
@@ -58,6 +60,37 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 }
 
 window.initMap = initMap;
-
+//dynamic geocoding using user input...still reading documentation, need help with geocoding requests...
 //Yelp api code starts here
+
+var geocoder;
+var mapOne;
+  function initialize() {
+    geocoder = new google.maps.Geocoder();
+    var latlang = new google.maps.LatLng(42, -84);
+    var myOptions = {
+        center: latlang, zoom: 5, mapTypeId: google.maps.MapTypeId.SATELLITE,
+        navigationControlOptions: {
+            style: google.maps.NavigationControlStyle.SMALL
+        }
+    };
+    var mapOne = new google.maps.Map(document.getElementById("map-2"),
+        myOptions);
+  }
+
+  function codeAddress() { 
+    var sAddress = document.getElementById("newLocation").value;
+    geocoder.geocode( { 'address': sAddress}, function(results, status) { 
+            if (status == google.maps.GeocoderStatus.OK) {
+                map.setCenter(results[0].geometry.location);
+                var marker = new google.maps.Marker({
+                map: map,
+                position: results[0].geometry.location
+                });
+            }
+            else{
+            alert("Geocode was not successful for the following reason: " + status);
+            }
+        });
+  }
 
