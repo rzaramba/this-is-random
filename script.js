@@ -94,7 +94,7 @@ var mapOne;
 
 // The method below using the bearer token is not safe because anyone can read the code and use the authorization for their own project, however, for the purposes of the front end of the app working and this course we are doing it like this.
 
-  var YELP_URL = 'https://api.yelp.com/v3/events?locale=en_US&limit=7&end_date=1657158251&location=colorado&city=denver' ;
+  var YELP_URL = 'https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/events?locale=en_US&limit=7&end_date=1657158251&location=colorado&city=denver' ;
 
   var YELP_API_KEY = '2ZhlYRdEeLQ6L6Ar-oilki-PPnB4uUxOvbLOWfrLFiJlW78u-0Cdik77mlXZKQb0nFMQ5SX8GzzgjLjNXAeTo5RjKU_KkbBskWczcaTnuwEqiP6dYgPZd_8MEbSbYnYx' ;
 
@@ -103,8 +103,8 @@ var mapOne;
             headers: new Headers({
               'Authorization': `Bearer ${YELP_API_KEY}`,
               'Content-Type': 'application/json'
-            })
-            //mode: 'no-cors'
+            }),
+            // mode: 'cors-anywhere'
           });
 
           fetch (req)
