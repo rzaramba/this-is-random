@@ -128,7 +128,8 @@ document.querySelector('#inputButtonGeocode').addEventListener('click', function
     })
     .then((jsonData) => {
       console.log(jsonData);
-      displayEvents(jsonData)
+      displayEvents(jsonData);
+      scrollRes();
 
     })
 
@@ -163,6 +164,12 @@ document.querySelector('#inputButtonGeocode').addEventListener('click', function
       linkHeading.innerHTML = `<a href="${eventLink}" >Event Site</a>` + '<br><br>';
       eventDiv.appendChild(linkHeading);
     }
+    }
+
+    function scrollRes(){
+
+      $(window).scrollTop($('#results').position().top);
+
     }
 
 })
@@ -196,7 +203,8 @@ document.querySelector('#btn').addEventListener('click', function(){
     })
     .then((jsonData) => {
       console.log(jsonData);
-      displayEvents(jsonData)
+      displayEvents(jsonData);
+      scrollRes() 
 
     })
 
@@ -231,6 +239,12 @@ document.querySelector('#btn').addEventListener('click', function(){
       linkHeading.innerHTML = `<a href="${eventLink}" >Event Site</a>` + '<br><br>';
       eventDiv.appendChild(linkHeading);
     }
+    }
+
+    function scrollRes(){
+
+      $(window).scrollTop($('#results').position().top);
+
     }
 
 })
