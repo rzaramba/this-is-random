@@ -1,3 +1,5 @@
+
+
 /* added bulma */
 
 @import "https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css";
@@ -21,8 +23,6 @@
   #map {
   position: relative;
 	padding-top: 50%;
-  
- 
   }
   /* 
    * Optional: Makes the sample page fill the window. 
@@ -44,17 +44,12 @@
     min-height: 300px;
   }
 
-  #cityname {
-    max-width: 300px;
-  }
 
-
-
-  @media screen and (min-width: 1200px) {
+  /* @media screen and (min-width: 1200px) {
     #map {
       width: 600px;
     }
-  }
+  } */
 
   @media screen and (max-width: 320px) {
     #map {
@@ -62,25 +57,28 @@
     }
   }
 
-  #yelp-location {
-      display: flex;
-      justify-content: center;
-      align-items: center;
+  #newLocation {
+      font-size: large;
   }
-  #yelp-btn {
+  
+  #yourCity {
       display: flex;
-      margin: 4px;
-      justify-content: center;
-  }
-  #yelp-stuff {
-      display: flex;
-      justify-content: center;
+      justify-content: space-evenly;
+      max-width: 600px;
       margin: 10px;
       padding: 5px;
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   }
 
   #resultsBox{
     min-width: 200px;
     max-width: 400px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   }
+
+  button, input {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  }
+
+  
 

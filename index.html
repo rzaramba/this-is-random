@@ -18,11 +18,17 @@
           
           <div id="logo"></div>
           <br>
+          <!-- Type city  -->
           <div class="has-text-centered">
             <button id="btn" class="button is-primary is-medium px-6 ">Find My Location</button>
           </div>
-          Type Your City Here: <input type="text" id="newLocation" style=" width:200px" title="Address to Geocode" />     
-          <input type="button" onclick="codeAddress()" id="inputButtonGeocode" style="width:150px" title="Click to Geocode" value="Geocode" />
+              <div id="yourCity">
+                <h1 class="title is-4">Your City Here:</h1> <input type="text" id="newLocation" style=" width:200px" title="Address to Geocode" placeholder="city name" /> 
+                <br><br>
+                <input type="button" onclick="codeAddress()" id="inputButtonGeocode" style="width:150px" title="Click to Geocode" value="Get Events" class="button is-primary is-medium px-6 "/>
+              </div>
+
+              <!-- map -->
           <div id="map_canvas" style="width:100%; height:100%"></div>
           <br>
           <div id="map"></div>
@@ -37,7 +43,7 @@
                  
                 </div>
                 </form>
-              </div>
+          </div>
             
 
     
