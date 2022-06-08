@@ -13,7 +13,7 @@
   align-items: center;
 }
  div#map {
-   
+  
   position: relative;
 	padding-top: 50%;
   }
@@ -77,5 +77,10 @@
       justify-content: center;
       margin: 10px;
       padding: 5px;
+  }
+
+  #resultsBox{
+    min-width: 200px;
+    max-width: 400px;
   }
 

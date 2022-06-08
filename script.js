@@ -55,14 +55,14 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 }
 
 window.initMap = initMap;
-//dynamic geocoding using user input...still reading documentation, need help with geocoding requests...
-//Yelp api code starts here
+//Geocoding API
 
 var geocoder;
 var mapOne;
 function initialize() {
   geocoder = new google.maps.Geocoder();
   var latlang = new google.maps.LatLng(42, -84);
+
   var myOptions = {
     center: latlang, zoom: 5, mapTypeId: google.maps.MapTypeId.SATELLITE,
     navigationControlOptions: {
@@ -71,6 +71,11 @@ function initialize() {
   };
   var mapOne = new google.maps.Map(document.getElementById("map-2"),
     myOptions);
+
+  if (localStorage.userLocation) {
+    document.getElementById("newLocation").value = localStorage.userLocation
+  }
+  console.log(localStorage.userLocation);
 }
 
 function codeAddress() {
@@ -82,6 +87,8 @@ function codeAddress() {
         map: map,
         position: results[0].geometry.location
       });
+      console.log(sAddress);
+      localStorage.setItem("userLocation", sAddress);
     }
     else {
       alert("Geocode was not successful for the following reason: " + status);
@@ -106,27 +113,108 @@ document.querySelector('#inputButtonGeocode').addEventListener('click', function
       'Authorization': `Bearer ${YELP_API_KEY}`,
       'Content-Type': 'application/json'
     }),
-    
+
   });
 
   fetch(req)
-    .then((tacocat) => {
-      if (tacocat.ok) {
-        return tacocat.json();
+    .then((response) => {
+      if (response.ok) {
+        return response.json();
       } else {
-        
+
         throw new Error();
       }
     })
     .then((jsonData) => {
       console.log(jsonData);
+      displayEvents(jsonData)
+
     })
+
     .catch((err) => {
       console.log('ERROR: ', err.message);
     });
 
+    function displayEvents(jsonData){
+
+      for (var i = 1; i < jsonData.events.length; i++){
+      // Event category
+      const eventOne = jsonData.events[i];
+      const eventDiv = document.querySelector('#resultsBox');
+      const eventCat = eventOne.category;
+      const catHeading = document.createElement('h2');
+      catHeading.innerHTML = 'Category: ' + eventCat;
+      eventDiv.appendChild(catHeading);
+      // Event description
+      const eventDesc = eventOne.description;
+      const descHeading = document.createElement('h2');
+      descHeading.innerHTML = 'Description: ' + eventDesc;
+      eventDiv.appendChild(descHeading);
+      // Event time
+      const eventTime = eventOne.time_start;
+      const timeHeading = document.createElement('h2');
+      timeHeading.innerHTML = 'Time: ' + eventTime;
+      eventDiv.appendChild(timeHeading);
+      // Event link
+      const eventLink = eventOne.event_site_url;
+      const linkHeading = document.createElement('h2');
+      // linkHeading.innerHTML = 'Site: ' + eventLink;
+      eventDiv.appendChild(linkHeading);
+    }
+    }
+
 })
 
+
+
+
+//modal js
+document.addEventListener('DOMContentLoaded', () => {
+  // Functions to open and close a modal
+  function openModal($el) {
+    $el.classList.add('is-active');
+  }
+
+  function closeModal($el) {
+    $el.classList.remove('is-active');
+  }
+
+  function closeAllModals() {
+    (document.querySelectorAll('.modal') || []).forEach(($modal) => {
+      closeModal($modal);
+    });
+  }
+
+  // Add a click event on buttons to open a specific modal
+  (document.querySelectorAll('.js-modal-trigger') || []).forEach(($trigger) => {
+    const modal = $trigger.dataset.target;
+    const $target = document.getElementById(modal);
+
+    $trigger.addEventListener('click', () => {
+      openModal($target);
+    });
+  });
+
+  // Add a click event on various child elements to close the parent modal
+  (document.querySelectorAll('.modal-background, .modal-close, .modal-card-head .delete, .modal-card-foot .button') || []).forEach(($close) => {
+    const $target = $close.closest('.modal');
+
+    $close.addEventListener('click', () => {
+      closeModal($target);
+    });
+  });
+
+  // Add a keyboard event to close all modals
+  document.addEventListener('keydown', (event) => {
+    const e = event || window.event;
+
+    if (e.keyCode === 27) { // Escape key
+      closeAllModals();
+    }
+  });
+});
+
+//Rendering event results
 
 
 
