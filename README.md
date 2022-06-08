@@ -21,7 +21,11 @@ Technologies Used:
 
 This application uses HTML, CSS, Bulma (CSS framework), Google Maps JS API, Google Maps Geocoding API, as well as Yelp Fusion API in order to provide the best user experience providing location and event data
 
-#screenshot will go here#
+
+![screenshot1](./assets/Screen_Shot_1.png)
+![screenshot2](./assets/Screen_Shot_2.png)
+![screenshot3](./assets/Screen_Shot_3.png)
+
 
 [Link to our deployed application](https://rzaramba.github.io/this-is-random/)
 
