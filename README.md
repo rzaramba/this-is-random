@@ -23,4 +23,6 @@ This application uses HTML, CSS, Bulma (CSS framework), Google Maps JS API, Goog
 
 #screenshot will go here#
 
-#link to deployed application will go here#
+[Link to our deployed application](https://rzaramba.github.io/this-is-random/)
+
+[Link to our github repo](https://github.com/rzaramba/this-is-random)
