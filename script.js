@@ -286,6 +286,7 @@ document.addEventListener('DOMContentLoaded', () => {
     $close.addEventListener('click', () => {
       closeModal($target);
     });
+
   });
 
   // Add a keyboard event to close all modals
@@ -298,7 +299,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-//Rendering event results
+
 
 
 

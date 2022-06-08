@@ -8,6 +8,18 @@
  * that contains the map. 
  */
 
+#modalStyle{
+  background-color: aquamarine;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
+}
+
+#modalLogo{
+  margin-left: -10px;
+}
+
 .logo {
   display: flex;
   margin: 0;
