@@ -59,3 +59,20 @@
       width: 160px;
     }
   }
+
+  #yelp-location {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+  #yelp-btn {
+      display: flex;
+      margin: 4px;
+      justify-content: center;
+  }
+  #yelp-stuff {
+      display: flex;
+      justify-content: center;
+      margin: 10px;
+      padding: 5px;
+  }
