@@ -48,7 +48,7 @@
     max-width: 300px;
   }
 
-  
+
 
   @media screen and (min-width: 1200px) {
     #map {
@@ -61,3 +61,5 @@
       width: 160px;
     }
   }
+
+
