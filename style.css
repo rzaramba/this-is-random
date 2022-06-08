@@ -72,12 +72,17 @@
 
   #resultsBox{
     min-width: 200px;
-    max-width: 400px;
+    max-width: 600px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
   }
 
   button, input {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  }
+
+  .headerStyle{
+    font-style: bold;
   }
 
   
