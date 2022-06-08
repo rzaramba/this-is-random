@@ -110,9 +110,9 @@ document.querySelector('#inputButtonGeocode').addEventListener('click', function
   });
 
   fetch(req)
-    .then((tacocat) => {
-      if (tacocat.ok) {
-        return tacocat.json();
+    .then((response) => {
+      if (response.ok) {
+        return response.json();
       } else {
         
         throw new Error();
@@ -120,12 +120,34 @@ document.querySelector('#inputButtonGeocode').addEventListener('click', function
     })
     .then((jsonData) => {
       console.log(jsonData);
+    
+        const eventOne = jsonData.events[0];
+        const eventDiv = document.getElementById('#resultsBox');
+        const eventCat = eventOne.category;
+        const catHeading = document.createElement('h3');
+        catHeading.innerHTML = eventCat;
+        eventDiv.append(heading);
+      
     })
     .catch((err) => {
       console.log('ERROR: ', err.message);
     });
 
+    // function displayEvents(jsonData){
+
+    //   const eventOne = jsonData.events[0];
+    //   const eventDiv = document.getElementById('#resultsBox');
+    //   const eventCat = eventOne.category;
+    //   const heading = document.createElement('h3');
+    //   heading.innerHTML = eventCat;
+    //   eventDiv.appendChild(heading);
+
+    // }
+
 })
+
+
+
 
 //modal js
 document.addEventListener('DOMContentLoaded', () => {
@@ -172,6 +194,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+
+//Rendering event results
 
 
 
