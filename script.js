@@ -10,7 +10,7 @@ function initMap() {
   // const locationButton = document.createElement("button");
   //moved button from box to top of google maps
   //findMyLocation replaced all of locationButton in function...
-  
+
   const findMyLocation = document.querySelector("#btn");
 
   findMyLocation.textContent = "Find My Location";
@@ -60,75 +60,77 @@ window.initMap = initMap;
 
 var geocoder;
 var mapOne;
-  function initialize() {
-    geocoder = new google.maps.Geocoder();
-    var latlang = new google.maps.LatLng(42, -84);
-    var myOptions = {
-        center: latlang, zoom: 5, mapTypeId: google.maps.MapTypeId.SATELLITE,
-        navigationControlOptions: {
-            style: google.maps.NavigationControlStyle.SMALL
-        }
-    };
-    var mapOne = new google.maps.Map(document.getElementById("map-2"),
-        myOptions);
-  }
-
-  function codeAddress() { 
-    var sAddress = document.getElementById("newLocation").value;
-    geocoder.geocode( { 'address': sAddress}, function(results, status) { 
-            if (status == google.maps.GeocoderStatus.OK) {
-                map.setCenter(results[0].geometry.location);
-                var marker = new google.maps.Marker({
-                map: map,
-                position: results[0].geometry.location
-                });
-            }
-            else{
-            alert("Geocode was not successful for the following reason: " + status);
-            }
-        });
-
+function initialize() {
+  geocoder = new google.maps.Geocoder();
+  var latlang = new google.maps.LatLng(42, -84);
+  var myOptions = {
+    center: latlang, zoom: 5, mapTypeId: google.maps.MapTypeId.SATELLITE,
+    navigationControlOptions: {
+      style: google.maps.NavigationControlStyle.SMALL
+    }
   };
+  var mapOne = new google.maps.Map(document.getElementById("map-2"),
+    myOptions);
+}
+
+function codeAddress() {
+  var sAddress = document.getElementById("newLocation").value;
+  geocoder.geocode({ 'address': sAddress }, function (results, status) {
+    if (status == google.maps.GeocoderStatus.OK) {
+      map.setCenter(results[0].geometry.location);
+      var marker = new google.maps.Marker({
+        map: map,
+        position: results[0].geometry.location
+      });
+    }
+    else {
+      alert("Geocode was not successful for the following reason: " + status);
+    }
+  });
+
+};
 
 // Yelp API
 
 // The method below using the bearer token is not safe because anyone can read the code and use the authorization for their own project, however, for the purposes of the front end of the app working and this course we are doing it like this.
+document.querySelector('#inputButtonGeocode').addEventListener('click', function () {
 
-  var YELP_URL = 'https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/events?locale=en_US&limit=7&end_date=1657158251&location=colorado&city=denver' ;
+  var YELP_URL = `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/events?locale=en_US&limit=7&city=${document.getElementById("newLocation").value}`;
 
-  var YELP_API_KEY = '2ZhlYRdEeLQ6L6Ar-oilki-PPnB4uUxOvbLOWfrLFiJlW78u-0Cdik77mlXZKQb0nFMQ5SX8GzzgjLjNXAeTo5RjKU_KkbBskWczcaTnuwEqiP6dYgPZd_8MEbSbYnYx' ;
+  var YELP_API_KEY = '2ZhlYRdEeLQ6L6Ar-oilki-PPnB4uUxOvbLOWfrLFiJlW78u-0Cdik77mlXZKQb0nFMQ5SX8GzzgjLjNXAeTo5RjKU_KkbBskWczcaTnuwEqiP6dYgPZd_8MEbSbYnYx';
 
-          var req = new Request(YELP_URL, {
-            method: 'GET',
-            headers: new Headers({
-              'Authorization': `Bearer ${YELP_API_KEY}`,
-              'Content-Type': 'application/json'
-            }),
-            // mode: 'cors-anywhere'
-          });
 
-          fetch (req)
-          .then((response) => {
-            if(response.ok){
-            return response.json();
-          }else{ssss
-            throw new Error();
-          }
-        })
-        .then((jsonData) => {
-            console.log(jsonData);
-          })
-          .catch((err) => {
-            console.log('ERROR: ', err.message);
-          });
+  var req = new Request(YELP_URL, {
+    method: 'GET',
+    headers: new Headers({
+      'Authorization': `Bearer ${YELP_API_KEY}`,
+      'Content-Type': 'application/json'
+    }),
+    
+  });
+
+  fetch(req)
+    .then((tacocat) => {
+      if (tacocat.ok) {
+        return tacocat.json();
+      } else {
         
+        throw new Error();
+      }
+    })
+    .then((jsonData) => {
+      console.log(jsonData);
+    })
+    .catch((err) => {
+      console.log('ERROR: ', err.message);
+    });
 
-  
+})
 
 
 
-          
+
+
 
     // pop screen
 
-    
