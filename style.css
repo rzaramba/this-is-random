@@ -13,7 +13,10 @@
   align-items: center;
 }
  div#map {
-   
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
   position: relative;
 	padding-top: 50%;
   }
