@@ -18,20 +18,9 @@
         <main>
           
           <div id="logo"></div>
-          <div class="columns is-mobile is-centered mt-6">
-            <div class=“citySearch”>
-              <form class="box" method="POST">
-                <div class="field">
-                  <label class="label is-medium columns is-mobile is-centered">Do you need help finding out what to do today?</label>
-                  <div class="control box has-text-centered"><input id="cityname" class="input is-large  " type="text" placeholder="Type Yes or No">
-                  </div>   
-                </div>
-                <div class="has-text-centered">
-                <button id="btn" class="button is-primary is-medium px-6 ">Find My Location</button>
-              </div>
-              </form>
-
-            </div>
+          <br>
+          <div class="has-text-centered">
+            <button id="btn" class="button is-primary is-medium px-6 ">Find My Location</button>
           </div>
           Type Your Address Here: <input type="text" id="newLocation" style=" width:200px" title="Address to Geocode" />     
           <input type="button" onclick="codeAddress()" id="inputButtonGeocode" style="width:150px" title="Click to Geocode" value="Geocode" />
@@ -61,8 +50,10 @@
         <!-- <div id="map"></div> -->
 
     
+              </form>
+          </div>
+        </main>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBUwMsfjtVxq0xvUWVxVq2b7cSGbqnHp1k&callback=initMap&v=weekly" defer></script>
-
   </body>
 </html>  
   
