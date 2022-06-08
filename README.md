@@ -1,4 +1,8 @@
 # this-is-random
+Before running the app: Please follow the link below and click "request temporary access to the demo server" or the app won't work properly. 
+
+[Link to cors-anywhere access](https://cors-anywhere.herokuapp.com/corsdemo)
+
 
 User story:
 
