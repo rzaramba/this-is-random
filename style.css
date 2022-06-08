@@ -20,6 +20,10 @@
   margin-left: -10px;
 }
 
+#modalText {
+    color:#ed8b76;
+}
+
 .logo {
   display: flex;
   margin: 0;
