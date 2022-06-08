@@ -55,14 +55,14 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 }
 
 window.initMap = initMap;
-//dynamic geocoding using user input...still reading documentation, need help with geocoding requests...
-//Yelp api code starts here
+//Geocoding API
 
 var geocoder;
 var mapOne;
 function initialize() {
   geocoder = new google.maps.Geocoder();
   var latlang = new google.maps.LatLng(42, -84);
+
   var myOptions = {
     center: latlang, zoom: 5, mapTypeId: google.maps.MapTypeId.SATELLITE,
     navigationControlOptions: {
@@ -71,6 +71,11 @@ function initialize() {
   };
   var mapOne = new google.maps.Map(document.getElementById("map-2"),
     myOptions);
+
+  if (localStorage.userLocation) {
+    document.getElementById("newLocation").value = localStorage.userLocation
+  }
+  console.log(localStorage.userLocation);
 }
 
 function codeAddress() {
@@ -82,6 +87,8 @@ function codeAddress() {
         map: map,
         position: results[0].geometry.location
       });
+      console.log(sAddress);
+      localStorage.setItem("userLocation", sAddress);
     }
     else {
       alert("Geocode was not successful for the following reason: " + status);
@@ -106,7 +113,7 @@ document.querySelector('#inputButtonGeocode').addEventListener('click', function
       'Authorization': `Bearer ${YELP_API_KEY}`,
       'Content-Type': 'application/json'
     }),
-    
+
   });
 
   fetch(req)
@@ -114,7 +121,7 @@ document.querySelector('#inputButtonGeocode').addEventListener('click', function
       if (response.ok) {
         return response.json();
       } else {
-        
+
         throw new Error();
       }
     })
