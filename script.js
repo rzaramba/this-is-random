@@ -127,29 +127,41 @@ document.querySelector('#inputButtonGeocode').addEventListener('click', function
     })
     .then((jsonData) => {
       console.log(jsonData);
-    
-        const eventOne = jsonData.events[0];
-        const eventDiv = document.getElementById('#resultsBox');
-        const eventCat = eventOne.category;
-        const catHeading = document.createElement('h3');
-        catHeading.innerHTML = eventCat;
-        eventDiv.append(heading);
-      
+      displayEvents(jsonData)
+
     })
+
     .catch((err) => {
       console.log('ERROR: ', err.message);
     });
 
-    // function displayEvents(jsonData){
+    function displayEvents(jsonData){
 
-    //   const eventOne = jsonData.events[0];
-    //   const eventDiv = document.getElementById('#resultsBox');
-    //   const eventCat = eventOne.category;
-    //   const heading = document.createElement('h3');
-    //   heading.innerHTML = eventCat;
-    //   eventDiv.appendChild(heading);
-
-    // }
+      for (var i = 1; i < jsonData.events.length; i++){
+      // Event category
+      const eventOne = jsonData.events[i];
+      const eventDiv = document.querySelector('#resultsBox');
+      const eventCat = eventOne.category;
+      const catHeading = document.createElement('h2');
+      catHeading.innerHTML = 'Category: ' + eventCat;
+      eventDiv.appendChild(catHeading);
+      // Event description
+      const eventDesc = eventOne.description;
+      const descHeading = document.createElement('h2');
+      descHeading.innerHTML = 'Description: ' + eventDesc;
+      eventDiv.appendChild(descHeading);
+      // Event time
+      const eventTime = eventOne.time_start;
+      const timeHeading = document.createElement('h2');
+      timeHeading.innerHTML = 'Time: ' + eventTime;
+      eventDiv.appendChild(timeHeading);
+      // Event link
+      const eventLink = eventOne.event_site_url;
+      const linkHeading = document.createElement('h2');
+      // linkHeading.innerHTML = 'Site: ' + eventLink;
+      eventDiv.appendChild(linkHeading);
+    }
+    }
 
 })
 
