@@ -167,7 +167,7 @@ document.querySelector('#inputButtonGeocode').addEventListener('click', function
 
 })
 
-//running same results function to show events when the find my loation button is clicked 
+//running same results function to show events when the find my location button is clicked 
 
 document.querySelector('#btn').addEventListener('click', function(){
 
@@ -234,6 +234,7 @@ document.querySelector('#btn').addEventListener('click', function(){
     }
 
 })
+
 
 
 
